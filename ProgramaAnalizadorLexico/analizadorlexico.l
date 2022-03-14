@@ -22,7 +22,7 @@ const_num_real    [0-9]*\.[0-9]+|[0-9]+\.[0-9]*
 {const_cadena}     {printf("Se acepto %s como constante cadena\n",yytext);}
 {const_num_real}     {printf("Se acepto %s como constante numerica real\n",yytext);}
 {const_num_entera}     {printf("Se acepto %s como constante numerica entera\n",yytext);}
-{especial}     {printf("Se acepto %s como especial\n",yytext);}
+{especial}     {printf("Se acepto %s como caracter especial\n",yytext);}
 %%
 int main(int argc, char *argv){
 	
