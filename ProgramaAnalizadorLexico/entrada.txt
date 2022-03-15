@@ -1,0 +1,1 @@
+entero edad i_i 10.
