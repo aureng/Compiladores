@@ -587,8 +587,19 @@ char *yytext;
 #line 8 "analizadorlexico.l"
 #include <stdio.h>
 #include <stdlib.h>
+int valor;
+int i,j; //Solo sirve para hacer iteraciones
+FILE *tablaSimbolos; //Crea el txt para la tabla de simbolos
+FILE *tablaLiteralesCadenas; //Lo mismo 
+FILE *tablaLiteralesConstantes; // Tambien
+FILE *tablaTokens; //Es la salida mas importante, tiene todos en uno mismo
+//Funciones para generar tokens
+void agregarTablaLiteralesCadenas(); //Aqui se meten puras cadenas
+void agregarTablaSimbolos();  //Solo identificadores
+void agregarTablaLiteralesReales();  //Puros numeros reales
+void agregarToken(int clase, int valor);
+//Enteros, simbolos especiales y operadores dan como tal en los tokens.
 
-int i;
 //A PARTIR DE AQUI SOLO ES LA CREACION DE LOS CATALOGOS O LAS TABLAS QUE NO SE MODIFICAN
 char tabla_palabras_reservadas[11][9]={	"cadena",
 					"devuelve",
@@ -606,8 +617,8 @@ char tabla_op_relacional[6][5]={"<M>", "<m>", "<=>", "<M=>", "<m=>", "<$=>"};
 char tabla_op_asignacion[9][4]={"i_i", "M_i", "m_i", "a_i", "d_i", "p_i", "A_i", "P_i", "B_i"};
 char tabla_op_aritmetico[6][5]={"sum", "res", "mult", "div", "mod", "pow"};
 //TERMINA EL APARTADO PARA LOS CATALOGOS
-#line 610 "lex.yy.c"
-#line 611 "lex.yy.c"
+#line 621 "lex.yy.c"
+#line 622 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -824,9 +835,9 @@ YY_DECL
 		}
 
 	{
-#line 40 "analizadorlexico.l"
+#line 51 "analizadorlexico.l"
 
-#line 830 "lex.yy.c"
+#line 841 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -885,61 +896,69 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 41 "analizadorlexico.l"
-{printf("Se acepto %s como palabra reservada\n",yytext);}
+#line 52 "analizadorlexico.l"
+{agregarToken(4, valor);}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 42 "analizadorlexico.l"
-{printf("Se acepto %s como operador aritmetico\n",yytext);}
+#line 53 "analizadorlexico.l"
+{int valor; int bandera=0;
+			for(i=0; i<6; i++){
+				for(j=0; j<yyleng; j++){
+					if(tabla_op_aritmetico[i][j] != yytext[i]) bandera=1;
+				}
+				if(bandera == 0) valor = i;
+			}
+			agregarToken(6, valor);}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 43 "analizadorlexico.l"
-{printf("Se acepto %s como operador de asignacion\n",yytext);}
+#line 61 "analizadorlexico.l"
+{agregarToken(3, valor);}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 44 "analizadorlexico.l"
-{printf("Se acepto %s como operador relacional\n",yytext);}
+#line 62 "analizadorlexico.l"
+{agregarToken(2, valor);}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 45 "analizadorlexico.l"
-{printf("Se acepto %s como identificador\n",yytext);}
+#line 63 "analizadorlexico.l"
+{agregarTablaSimbolos();
+			agregarToken(0, valor);}
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 46 "analizadorlexico.l"
-{printf("Se acepto %s como constante cadena\n",yytext);}
+#line 65 "analizadorlexico.l"
+{agregarToken(7,valor);}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 47 "analizadorlexico.l"
-{printf("Se acepto %s como constante numerica real\n",yytext);}
+#line 66 "analizadorlexico.l"
+{agregarToken(8, valor);}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 48 "analizadorlexico.l"
-{printf("Se acepto %s como constante numerica entera\n",yytext);}
+#line 67 "analizadorlexico.l"
+{agregarToken(1, valor);}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 49 "analizadorlexico.l"
-{printf("Se acepto %s como caracter especial\n",yytext);}
+#line 68 "analizadorlexico.l"
+{agregarToken(5,(int)*yytext);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 50 "analizadorlexico.l"
-{printf("%s no es valido para ningun caso\n",yytext);}
+#line 69 "analizadorlexico.l"
+{printf("No se encuentra %s",yytext);}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 51 "analizadorlexico.l"
+#line 70 "analizadorlexico.l"
 ECHO;
 	YY_BREAK
-#line 943 "lex.yy.c"
+#line 962 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1944,14 +1963,18 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 51 "analizadorlexico.l"
+#line 70 "analizadorlexico.l"
 
-int main(int argc, char *argv){
-	
+void agregarTablaSimbolos(){
+}
+
+void agregarToken(int clase, int valor){
+	printf("\nClase: %d, Valor: %d",clase,valor);	
+}
+
+int main(int argc, char *argv[]){	
+	yyin = fopen(argv[1],"r");
 	yylex();
-	/*
-	yyin() = fopen(argv[1],"r");
-	*/
 	return(0);
 }
 

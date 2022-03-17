@@ -1,1 +1,13 @@
-entero edad i_i 10.
+cadena nombre i_i "Pedro"
+entero par_1 i_i 2:
+flotante altura:
+
+mientras(j<$=>10)
+	j M_i 1:
+
+para(par_1 i_i 0: par_1 <m> 10: par_1 M_i 1){
+	imprime(par_1):
+
+	altura i_i (par_1 sum 3) mod 2:
+	var_1 i_i 5:
+}
