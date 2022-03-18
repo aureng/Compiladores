@@ -381,8 +381,8 @@ static const flex_int16_t yy_accept[133] =
 
 static const YY_CHAR yy_ec[256] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    2,    2,
+        2,    1,    2,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    2,    1,    3,    1,    4,    1,    1,    1,    5,
         5,    1,    1,    1,    1,    6,    1,    7,    8,    8,
@@ -587,20 +587,32 @@ char *yytext;
 #line 8 "analizadorlexico.l"
 #include <stdio.h>
 #include <stdlib.h>
-int valor;
-int i,j; //Solo sirve para hacer iteraciones
-FILE *tablaSimbolos; //Crea el txt para la tabla de simbolos
-FILE *tablaLiteralesCadenas; //Lo mismo 
-FILE *tablaLiteralesConstantes; // Tambien
-FILE *tablaTokens; //Es la salida mas importante, tiene todos en uno mismo
-//Funciones para generar tokens
-void agregarTablaLiteralesCadenas(); //Aqui se meten puras cadenas
-void agregarTablaSimbolos();  //Solo identificadores
-void agregarTablaLiteralesReales();  //Puros numeros reales
-void agregarToken(int clase, int valor);
-//Enteros, simbolos especiales y operadores dan como tal en los tokens.
 
-//A PARTIR DE AQUI SOLO ES LA CREACION DE LOS CATALOGOS O LAS TABLAS QUE NO SE MODIFICAN
+int valor; //Para poder conseguir el valor del token
+int i,j; //Solo sirve para hacer iteraciones
+
+//Apuntadores de archivos para la creacion de salidas .txt
+FILE *tablaSimbolos; 								//Crea el txt para la tabla de simbolos
+FILE *tablaLiteralesCadenas; 							//Crea el txt para la tabla de literales de cadenas
+FILE *tablaLiteralesReales; 							//Crea el txt para la tabla de literales de constantes reales
+FILE *tablaTokens; 								//Es la salida mas importante, genera los tokens con los valores y las clases
+
+//Funciones para crear las Tablas de ayuda, los operadores, palabras reservadas, constantes reales y caracteres especiales tienen sus propias tablas.
+void agregarTablaLiteralesCadenas(int posicion, char cadena[]); 			//Tabla de ayuda para las cadenas. Debe llevar posicion, y la cadena
+void agregarTablaSimbolos(int posicion, char nombre[]);  			//Tabla de ayuda para identificadores. Tiene posicion, nombre del identificador y valor entero en -1
+void agregarTablaLiteralesReales(int posicion, char constReal[]);  		//Tabla de ayuda para los numeros reales. Lleva la posicion y la constante real
+void agregarToken(int clase, int valor);					//Sirve dando el numero de la clase y el valor en tablas o de la constante, si fuera el caso.
+
+//Banderas Importantes para los apuntadores. Mencionan el tamano de las listas. Todas inicializadas en 0 por ser globales.
+int tamC, tamS, tamR, tamT;
+
+//Apuntadores de las tablas, sirven de ayuda para conseguir las listas ligadas
+char *apuntadorCadenas; 
+char *apuntadorSimbolos;
+float *apuntadorReales;
+int *apuntadorTokens;
+
+//A PARTIR DE AQUI SOLO ES LA CREACION DE LOS CATALOGOS O LAS TABLAS CONSTANTES
 char tabla_palabras_reservadas[11][9]={	"cadena",
 					"devuelve",
 					"entero",
@@ -612,13 +624,11 @@ char tabla_palabras_reservadas[11][9]={	"cadena",
 					"si",
 					"sino",
 					"vacio"	};
-
 char tabla_op_relacional[6][5]={"<M>", "<m>", "<=>", "<M=>", "<m=>", "<$=>"};
 char tabla_op_asignacion[9][4]={"i_i", "M_i", "m_i", "a_i", "d_i", "p_i", "A_i", "P_i", "B_i"};
 char tabla_op_aritmetico[6][5]={"sum", "res", "mult", "div", "mod", "pow"};
-//TERMINA EL APARTADO PARA LOS CATALOGOS
-#line 621 "lex.yy.c"
-#line 622 "lex.yy.c"
+#line 631 "lex.yy.c"
+#line 632 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -835,9 +845,9 @@ YY_DECL
 		}
 
 	{
-#line 51 "analizadorlexico.l"
+#line 61 "analizadorlexico.l"
 
-#line 841 "lex.yy.c"
+#line 851 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -896,16 +906,33 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 52 "analizadorlexico.l"
-{agregarToken(4, valor);}
+#line 62 "analizadorlexico.l"
+{int valor, bandera;
+			char lectura[9];
+			strcpy(lectura, yytext);
+			for(i=0; i<11; i++){
+				bandera=0;
+				for(j=0; j<yyleng; j++){
+					if(tabla_palabras_reservadas[i][j] != lectura[j]){
+						bandera=1;
+					}
+				}
+				if(bandera == 0) valor = i;
+			}
+			agregarToken(4, valor);}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 53 "analizadorlexico.l"
-{int valor; int bandera=0;
+#line 75 "analizadorlexico.l"
+{int valor, bandera;
+			char lectura[5];
+			strcpy(lectura, yytext);
 			for(i=0; i<6; i++){
+				bandera=0;
 				for(j=0; j<yyleng; j++){
-					if(tabla_op_aritmetico[i][j] != yytext[i]) bandera=1;
+					if(tabla_op_aritmetico[i][j] != lectura[j]){
+						bandera=1;
+					}
 				}
 				if(bandera == 0) valor = i;
 			}
@@ -913,52 +940,98 @@ YY_RULE_SETUP
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 61 "analizadorlexico.l"
-{agregarToken(3, valor);}
+#line 88 "analizadorlexico.l"
+{int valor, bandera;
+			char lectura[5];
+			strcpy(lectura, yytext);
+			for(i=0; i<6; i++){
+				bandera=0;
+				for(j=0; j<yyleng; j++){
+					if(tabla_op_asignacion[i][j] != lectura[j]){
+						bandera=1;
+					}
+				}
+				if(bandera == 0) valor = i;
+			}
+			agregarToken(3, valor);}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 62 "analizadorlexico.l"
-{agregarToken(2, valor);}
+#line 101 "analizadorlexico.l"
+{int valor, bandera;
+			char lectura[4];
+			strcpy(lectura, yytext);
+			for(i=0; i<9; i++){
+				bandera=0;
+				for(j=0; j<yyleng; j++){
+					if(tabla_op_relacional[i][j] != lectura[j]){
+						bandera=1;
+					}
+				}
+				if(bandera == 0) valor = i;
+			}
+			agregarToken(2, valor);}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 63 "analizadorlexico.l"
-{agregarTablaSimbolos();
-			agregarToken(0, valor);}
+#line 114 "analizadorlexico.l"
+{char lectura[yyleng];
+			strcpy(lectura,yytext);
+			agregarToken(0, tamS);
+			agregarTablaSimbolos(tamS, lectura);
+			}
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 65 "analizadorlexico.l"
-{agregarToken(7,valor);}
+#line 119 "analizadorlexico.l"
+{char lectura[40];
+			strcpy(lectura,yytext);
+			agregarToken(7,tamC);
+			agregarTablaLiteralesCadenas(tamC, lectura);}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 66 "analizadorlexico.l"
-{agregarToken(8, valor);}
+#line 124 "analizadorlexico.l"
+{char lectura[yyleng];
+			agregarToken(8, tamR);
+			agregarTablaLiteralesReales(tamR, lectura);
+			}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 67 "analizadorlexico.l"
-{agregarToken(1, valor);}
+#line 128 "analizadorlexico.l"
+{int valor, bandera;
+			char lectura[yyleng];
+			strcpy(lectura, yytext);
+			if(lectura[0]=='0'|| lectura[1]=='x' || lectura[2]=='X'){
+				if(lectura[1]=='x' || lectura[1]=='X'){
+					 
+				}else{
+				
+				}	printf("Reconoci hexa u octal\n");
+			}/*
+			for(i=0; i<9; i++){
+				
+			}*/
+			agregarToken(1, valor);}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 68 "analizadorlexico.l"
+#line 142 "analizadorlexico.l"
 {agregarToken(5,(int)*yytext);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 69 "analizadorlexico.l"
-{printf("No se encuentra %s",yytext);}
+#line 143 "analizadorlexico.l"
+{printf("\nNo se encuentra %s",yytext);}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 70 "analizadorlexico.l"
+#line 144 "analizadorlexico.l"
 ECHO;
 	YY_BREAK
-#line 962 "lex.yy.c"
+#line 1035 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1963,9 +2036,18 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 70 "analizadorlexico.l"
+#line 144 "analizadorlexico.l"
 
-void agregarTablaSimbolos(){
+void agregarTablaSimbolos(int posicion, char nombre[]){
+	tamS++;
+}
+
+void agregarTablaLiteralesCadenas(int posicion, char cadena[]){
+	tamC++;
+}
+
+void agregarTablaLiteralesReales(int posicion, char constReal[]){
+	tamR++;
 }
 
 void agregarToken(int clase, int valor){
@@ -1973,8 +2055,15 @@ void agregarToken(int clase, int valor){
 }
 
 int main(int argc, char *argv[]){	
+	tablaLiteralesCadenas = fopen("TablaLiteralesCadenas.txt","w");	
+	tablaLiteralesReales = fopen("TablaLiteralesReales.txt","w");	
+	tablaSimbolos = fopen("TablaSimbolos.txt","w");
+	tablaTokens = fopen("TablaTokens.txt","w");	
 	yyin = fopen(argv[1],"r");
 	yylex();
+	fclose(tablaLiteralesCadenas);
+	fclose(tablaLiteralesReales);
+	fclose(tablaSimbolos);
 	return(0);
 }
 
