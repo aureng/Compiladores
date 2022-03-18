@@ -49,22 +49,63 @@ const_cadena    \"[^"]{0,38}\"
 const_num_real    [0-9]*\.[0-9]+|[0-9]+\.[0-9]*
 error    [^{identificador}|{const_num_entera}|{op_relacional}|{op_asignacion}|{palabra_reservada}|{especial}|{op_aritmetico}|{const_cadena}|{const_num_real}|\h|\n|" "]
 %%
-{palabra_reservada}    {agregarToken(4, valor);}
-{op_aritmetico}     {int valor; int bandera=0;
-			for(i=0; i<6; i++){
+{palabra_reservada}    {int valor, bandera;
+			char lectura[9];
+			strcpy(lectura, yytext);
+			for(i=0; i<11; i++){
+				bandera=0;
 				for(j=0; j<yyleng; j++){
-					if(tabla_op_aritmetico[i][j] != yytext[i]) bandera=1;
+					if(tabla_palabras_reservadas[i][j] != lectura[j]){
+						bandera=1;
+					}
+				}
+				if(bandera == 0) valor = i;
+			}
+			agregarToken(4, valor);}
+{op_aritmetico}     {int valor, bandera;
+			char lectura[5];
+			strcpy(lectura, yytext);
+			for(i=0; i<6; i++){
+				bandera=0;
+				for(j=0; j<yyleng; j++){
+					if(tabla_op_aritmetico[i][j] != lectura[j]){
+						bandera=1;
+					}
 				}
 				if(bandera == 0) valor = i;
 			}
 			agregarToken(6, valor);}
-{op_asignacion}     {agregarToken(3, valor);}
-{op_relacional}     {agregarToken(2, valor);}
+{op_asignacion}     {int valor, bandera;
+			char lectura[5];
+			strcpy(lectura, yytext);
+			for(i=0; i<6; i++){
+				bandera=0;
+				for(j=0; j<yyleng; j++){
+					if(tabla_op_asignacion[i][j] != lectura[j]){
+						bandera=1;
+					}
+				}
+				if(bandera == 0) valor = i;
+			}
+			agregarToken(3, valor);}
+{op_relacional}     {int valor, bandera;
+			char lectura[4];
+			strcpy(lectura, yytext);
+			for(i=0; i<9; i++){
+				bandera=0;
+				for(j=0; j<yyleng; j++){
+					if(tabla_op_relacional[i][j] != lectura[j]){
+						bandera=1;
+					}
+				}
+				if(bandera == 0) valor = i;
+			}
+			agregarToken(2, valor);}
 {identificador}     {agregarTablaSimbolos();
 			agregarToken(0, valor);}
 {const_cadena}     {agregarToken(7,valor);}
 {const_num_real}     {agregarToken(8, valor);}
-{const_num_entera}     {agregarToken(1, valor);}
+{const_num_entera}     {agregarToken(1, (int)*yytext);}
 {especial}     {agregarToken(5,(int)*yytext);}
 {error}    {printf("No se encuentra %s",yytext);}
 %%
