@@ -12,16 +12,16 @@ int valor; //Para poder conseguir el valor del token
 int i,j; //Solo sirve para hacer iteraciones
 
 //Apuntadores de archivos para la creacion de salidas .txt
-FILE *tablaSimbolos; //Crea el txt para la tabla de simbolos
-FILE *tablaLiteralesCadenas; //Crea el txt para la tabla de literales de cadenas
-FILE *tablaLiteralesConstantes; //Crea el txt para la tabla de literales de constantes
-FILE *tablaTokens; //Es la salida mas importante, genera los tokens con los valores y las clases
+FILE *tablaSimbolos; 								//Crea el txt para la tabla de simbolos
+FILE *tablaLiteralesCadenas; 							//Crea el txt para la tabla de literales de cadenas
+FILE *tablaLiteralesConstantes; 						//Crea el txt para la tabla de literales de constantes
+FILE *tablaTokens; 								//Es la salida mas importante, genera los tokens con los valores y las clases
 
 //Funciones para crear las Tablas de ayuda, los operadores, palabras reservadas, constantes reales y caracteres especiales tienen sus propias tablas.
-void agregarTablaLiteralesCadenas(); //Tabla de ayuda para las cadenas. Debe llevar posicion, y la cadena
-void agregarTablaSimbolos();  //Tabla de ayuda para identificadores. Tiene posicion, nombre del identificador y valor entero en -1
-void agregarTablaLiteralesReales();  //Tabla de ayuda para los numeros reales. Lleva la posicion y la constante real
-void agregarToken(int clase, int valor);//Sirve dando el numero de la clase y el valor en tablas o de la constante, si fuera el caso.
+void agregarTablaLiteralesCadenas(int posicion, char cadena[]); 		//Tabla de ayuda para las cadenas. Debe llevar posicion, y la cadena
+void agregarTablaSimbolos(int posicion, char nombre[]);  			//Tabla de ayuda para identificadores. Tiene posicion, nombre del identificador y valor entero en -1
+void agregarTablaLiteralesReales(int posicion, int constReal[]);  		//Tabla de ayuda para los numeros reales. Lleva la posicion y la constante real
+void agregarToken(int clase, int valor);					//Sirve dando el numero de la clase y el valor en tablas o de la constante, si fuera el caso.
 
 //Apuntadores de las tablas, sirven de ayuda para conseguir las listas ligadas
 int *apuntadorCadenas, *apuntadorSimbolos, *apuntadorReales, *apuntadorTokens;
@@ -108,15 +108,27 @@ error    [^{identificador}|{const_num_entera}|{op_relacional}|{op_asignacion}|{p
 				if(bandera == 0) valor = i;
 			}
 			agregarToken(2, valor);}
-{identificador}     {AgregarTablaSimbolos();
+{identificador}     {agregarTablaSimbolos();
 			agregarTablaSimbolos();
 			agregarToken(0, valor);}
 {const_cadena}     {agregarTablaLiteralesCadenas();
 			agregarToken(7,valor);}
 {const_num_real}     {agregarTablaLiteralesReales();
 			agregarToken(8, valor);}
-{const_num_entera}     {int valor
-			agregarToken(1, (int)*yytext);}
+{const_num_entera}     {int valor, bandera; n++;
+			char lectura[yyleng];
+			strcpy(lectura, yytext);
+			if(lectura[0]=='0'|| lectura[1]=='x' || lectura[2]=='X'){
+				if(lectura[1]=='x' || lectura[1]=='X'){
+					 
+				}else{
+				
+				}	printf("Reconoci hexa u octal\n");
+			}/*
+			for(i=0; i<9; i++){
+				
+			}*/
+			agregarToken(1, valor;}
 {especial}     {agregarToken(5,(int)*yytext);}
 {error}    {printf("\nNo se encuentra %s",yytext);}
 %%
