@@ -119,7 +119,7 @@ void crearNodo(char iden[]){
 
 %}
 identificador           [0-9][A-Za-z_]+|[A-Za-z][A-Za-z0-9_]*
-const_num_entera        [1-9][0-9]*|0[0-7]|0[xX][0-9A-Fa-f]+
+const_num_entera        [0-9][0-9]*|0[0-7]|0[xX][0-9A-Fa-f]+
 op_relacional           <[mM=]>|<[mM$]=>
 op_asignacion           [iMmadpAPB]_i
 palabra_reservada       "cadena"|"devuelve"|"entero"|"flotante"|"hacer"|"mientras"|"nulo"|"para"|"si"|"sino"|"vacio"
@@ -306,14 +306,14 @@ void Program(){
 			if(c=='}'){
 				c=getc(entrada);
 			}else{
-				printf("Se esperaba un }\n");
+				fprintf(tablaErrores,"Se esperaba un }\n");
 			}
 		}else{
-			printf("Se esperaba un {\n");
+			fprintf(tablaErrores,"Se esperaba un {\n");
 			return;				//Produccion 1
 		}		
 	}else{
-		printf("Hubo un error en la estructura del programa\n");
+		fprintf(tablaErrores,"Hubo un error en la estructura del programa\n");
 	}
 }
 void Decl(){
@@ -324,7 +324,7 @@ void Decl(){
 		Decl();
 		return;	//Produccion 3
 	}else{
-		printf("Hubo un error en las declaraciones\n}");
+		fprintf(tablaErrores,"Hubo un error en las declaraciones\n}");
 		return;
 	}		
 }
@@ -352,10 +352,10 @@ void D(){
 			L();
 			return;	//Produccion 7
 		}else{
-			printf("se esperaba un identificador\n");
+			fprintf(tablaErrores,"se esperaba un identificador\n");
 		}
 	}else{
-		printf("Hubo un error en la sentencia declarativa\n");
+		fprintf(tablaErrores,"Hubo un error en la sentencia declarativa\n");
 		return;
 	}
 }
@@ -370,7 +370,7 @@ void Tipo(){
 		c=getc(entrada);
 		return;		//Prod 10
 	}else{
-		printf("hubo un error en la declaracion de tipo\n");
+		fprintf(tablaErrores,"hubo un error en la declaracion de tipo\n");
 		return;
 	}
 }
@@ -385,7 +385,7 @@ void L(){
 		c=getc(entrada);
 		return;		//Prod 12
 	}else{
-		printf("Se esperaba un .\n");
+		fprintf(tablaErrores,"Se esperaba un .\n");
 		return;
 	}
 }
@@ -405,13 +405,13 @@ void Func(){
 						if(c=='}'){
 							c=getc(entrada);
 							return;				//Prod 13
-						}else{printf("Se esperaba un }\n");}
-					}else{printf("Se esperaba un {\n");}
-				}else{printf("Se esperaba un )\n");}
-			}else{printf("Se esperaba un (\n");}
-		}else{printf("Se esperaba un identificador\n");}
+						}else{fprintf(tablaErrores,"Se esperaba un }\n");}
+					}else{fprintf(tablaErrores,"Se esperaba un {\n");}
+				}else{fprintf(tablaErrores,"Se esperaba un )\n");}
+			}else{fprintf(tablaErrores,"Se esperaba un (\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un identificador\n");}
 	}else{
-		printf("Hubo un error con las funciones\n");
+		fprintf(tablaErrores,"Hubo un error con las funciones\n");
 		return;
 	}
 }
@@ -423,7 +423,7 @@ void TipoF(){
 		c=getc(entrada);
 		return; //Prod 15
 	}else{
-		printf("Hubo un error en la sentencia declarativa\n");
+		fprintf(tablaErrores,"Hubo un error en la sentencia declarativa\n");
 		return;
 	}
 }
@@ -438,7 +438,7 @@ void Param(){
 	}else if(c==')'){
 		return; //Prod 17
 	}else{
-		printf("Hubo un error en la definicion de parametros\n");
+		fprintf(tablaErrores,"Hubo un error en la definicion de parametros\n");
 		return;
 	}
 }
@@ -454,7 +454,7 @@ void otroParam(){
 	}else if(c==')'){
 		return;		//Prod 19
 	}else{
-		printf("Hubo un error en la definicion de parametros\n");
+		fprintf(tablaErrores,"Hubo un error en la definicion de parametros\n");
 		return;
 	}
 }
@@ -466,7 +466,7 @@ void R(){
 		R();
 		return; //Prod 21
 	}else{
-		printf("Hubo un error en R\n");
+		fprintf(tablaErrores,"Hubo un error en R\n");
 		return;
 	}
 }
@@ -489,14 +489,14 @@ void H(){
 							if(c=='.'){
 								c=getc(entrada);
 								return;	//Prod 22	
-							}else{printf("Se esperaba un .\n");}	
-						}else{printf("Se esperaba un )\n");}	
-					}else{printf("Se esperaba un (\n");}	
-				}else{printf("Se esperaba un token m\n");}	
-			}else{printf("Se esperaba un }\n");}
-		}else{printf("Se esperaba un {\n");}	
+							}else{fprintf(tablaErrores,"Se esperaba un .\n");}	
+						}else{fprintf(tablaErrores,"Se esperaba un )\n");}	
+					}else{fprintf(tablaErrores,"Se esperaba un (\n");}	
+				}else{fprintf(tablaErrores,"Se esperaba un token m\n");}	
+			}else{fprintf(tablaErrores,"Se esperaba un }\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un {\n");}	
 	}else{
-		printf("Se esperaba un token h\n");
+		fprintf(tablaErrores,"Se esperaba un token h\n");
 		return;
 	}
 }
@@ -517,13 +517,13 @@ void M(){
 						if(c=='.'){
 							c=getc(entrada);
 							return;	//Prod 23
-						}else{printf("Se esperaba un .\n");}	
-					}else{printf("Se esperaba un }\n");}	
-				}else{printf("Se esperaba un {\n");}	
-			}else{printf("Se esperaba un )\n");}
-		}else{printf("Se esperaba un (\n");}	
+						}else{fprintf(tablaErrores,"Se esperaba un .\n");}	
+					}else{fprintf(tablaErrores,"Se esperaba un }\n");}	
+				}else{fprintf(tablaErrores,"Se esperaba un {\n");}	
+			}else{fprintf(tablaErrores,"Se esperaba un )\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un (\n");}	
 	}else{
-		printf("Se esperaba un token m\n");
+		fprintf(tablaErrores,"Se esperaba un token m\n");
 		return;
 	}
 }
@@ -540,12 +540,12 @@ void P(){
 					if(c=='.'){
 						c=getc(entrada);
 						return; //prod 24	
-					}else{printf("Se esperaba un .\n");}	
-				}else{printf("Se esperaba un }\n");}	
-			}else{printf("Se esperaba un {\n");}
-		}else{printf("Se esperaba un token n\n");}	
+					}else{fprintf(tablaErrores,"Se esperaba un .\n");}	
+				}else{fprintf(tablaErrores,"Se esperaba un }\n");}	
+			}else{fprintf(tablaErrores,"Se esperaba un {\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un token n\n");}	
 	}else{
-		printf("Se esperaba un token p\n");
+		fprintf(tablaErrores,"Se esperaba un token p\n");
 		return;
 	}
 }
@@ -572,16 +572,16 @@ void I(){
 									if(c=='.'){
 										c=getc(entrada);
 										return; //Prod 25
-									}else{printf("Se esperaba un .\n");}
-								}else{printf("Se esperaba un }\n");}
-							}else{printf("Se esperaba un {\n");}	
-						}else{printf("Se esperaba un token w\n");}	
-					}else{printf("Se esperaba un }\n");}	
-				}else{printf("Se esperaba un {\n");}	
-			}else{printf("Se esperaba un )\n");}
-		}else{printf("Se esperaba un (\n");}	
+									}else{fprintf(tablaErrores,"Se esperaba un .\n");}
+								}else{fprintf(tablaErrores,"Se esperaba un }\n");}
+							}else{fprintf(tablaErrores,"Se esperaba un {\n");}	
+						}else{fprintf(tablaErrores,"Se esperaba un token w\n");}	
+					}else{fprintf(tablaErrores,"Se esperaba un }\n");}	
+				}else{fprintf(tablaErrores,"Se esperaba un {\n");}	
+			}else{fprintf(tablaErrores,"Se esperaba un )\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un (\n");}	
 	}else{
-		printf("Se esperaba un token i\n");
+		fprintf(tablaErrores,"Se esperaba un token i\n");
 		return;
 	}
 }
@@ -600,13 +600,13 @@ void Llama(){
 						if(c=='.'){
 							c=getc(entrada);
 							return; //Prod 26	
-						}else{printf("Se esperaba un .\n");}	
-					}else{printf("Se esperaba un }\n");}	
-				}else{printf("Se esperaba un )\n");}	
-			}else{printf("Se esperaba un (\n");}
-		}else{printf("Se esperaba un a\n");}	
+						}else{fprintf(tablaErrores,"Se esperaba un .\n");}	
+					}else{fprintf(tablaErrores,"Se esperaba un }\n");}	
+				}else{fprintf(tablaErrores,"Se esperaba un )\n");}	
+			}else{fprintf(tablaErrores,"Se esperaba un (\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un a\n");}	
 	}else{
-		printf("Se esperaba un {\n");
+		fprintf(tablaErrores,"Se esperaba un {\n");
 		return;
 	}
 }
@@ -618,7 +618,7 @@ void arg(){
 		otroArg();
 		return;	//Prod 28
 	}else{
-		printf("Se esperaba un identificador\n");
+		fprintf(tablaErrores,"Se esperaba un identificador\n");
 		return;
 	}
 }
@@ -629,11 +629,11 @@ void otroArg(){
 			c=getc(entrada);
 			otroArg();
 			return;	//Prod 29
-		}else{printf("Se esperaba un identificador\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un identificador\n");}
 	}else if(c==')'){
 		return;	//Prod 30
 	}else{
-		printf("Se esperaba un :\n");
+		fprintf(tablaErrores,"Se esperaba un :\n");
 		return;
 	}
 }
@@ -648,11 +648,11 @@ void Devuelve(){
 				if(c=='.'){
 					c=getc(entrada);
 					return; //Prod 31
-				}else{printf("Se esperaba un .\n");}	
-			}else{printf("Se esperaba un )\n");}
-		}else{printf("Se esperaba un (\n");}	
+				}else{fprintf(tablaErrores,"Se esperaba un .\n");}	
+			}else{fprintf(tablaErrores,"Se esperaba un )\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un (\n");}	
 	}else{
-		printf("Se esperaba un token d\n");
+		fprintf(tablaErrores,"Se esperaba un token d\n");
 		return;
 	}
 }
@@ -670,7 +670,7 @@ void Valor(){
 		otroValor();
 		return;	//Prod 35
 	}else{
-		printf("Hubo un error en el valor\n");
+		fprintf(tablaErrores,"Hubo un error en el valor\n");
 		return;
 	}
 }
@@ -682,7 +682,7 @@ void otroValor(){
 		c=getc(entrada);
 		return;	//Prod 37
 	}else{
-		printf("Hubo un error en el valor\n");
+		fprintf(tablaErrores,"Hubo un error en el valor\n");
 		return;
 	}
 }
@@ -694,9 +694,9 @@ void A(){
 		if(c==':'){
 			c=getc(entrada);
 			return; //Prod 38
-		}else{printf("Se esperaba un :\n");}	
+		}else{fprintf(tablaErrores,"Se esperaba un :\n");}	
 	}else{
-		printf("Se esperaba un identificador.\n");
+		fprintf(tablaErrores,"Se esperaba un identificador.\n");
 		return;
 	}
 }
@@ -726,7 +726,7 @@ void opasig(){
 		c=getc(entrada);
 		return;	//Prod 46
 	}else{
-		printf("Hubo un error en la asignacion.\n");
+		fprintf(tablaErrores,"Hubo un error en la asignacion.\n");
 		return;
 	}
 }
@@ -736,7 +736,7 @@ void E(){
 		EP();
 		return;	//Prod 47
 	}else{
-		printf("Error en la expresion aritmetica.\n");
+		fprintf(tablaErrores,"Error en la expresion aritmetica.\n");
 		return;
 	}
 }
@@ -754,7 +754,7 @@ void EP(){
 	}else if(c==':'||c==')'||c=='>'||c=='<'||c=='='||c=='g'||c=='l'||c=='!'){
 		return;	//Prod 50
 	}else{
-		printf("Error en la expresion aritmetica.\n");
+		fprintf(tablaErrores,"Error en la expresion aritmetica.\n");
 		return;
 	}
 }
@@ -764,7 +764,7 @@ void T(){
 		TP();
 		return;	//Prod 51
 	}else{
-		printf("Error en la expresion aritmetica.\n");
+		fprintf(tablaErrores,"Error en la expresion aritmetica.\n");
 		return;
 	}
 }
@@ -792,7 +792,7 @@ void TP(){
 	}else if(c=='+'||c=='-'||c==':'||c==')'||c=='>'||c=='<'||c=='='||c=='g'||c=='l'||c=='!'){
 		return;	//Prod 56
 	}else{
-		printf("Error en la expresion aritmetica.\n");
+		fprintf(tablaErrores,"Error en la expresion aritmetica.\n");
 		return;
 	}
 }
@@ -803,7 +803,7 @@ void F(){
 		if(c==')'){
 			c=getc(entrada);
 			return;	//Prod 57
-		}else{printf("Se esperaba un )\n");}	
+		}else{fprintf(tablaErrores,"Se esperaba un )\n");}	
 	}else if(c=='a'){
 		c=getc(entrada);
 		return;	//Prod 58
@@ -817,7 +817,7 @@ void F(){
 		Llama();
 		return;	//Prod 61
 	}else{
-		printf("Error en la expresion aritmetica.\n");
+		fprintf(tablaErrores,"Error en la expresion aritmetica.\n");
 		return;
 	}
 }
@@ -827,7 +827,7 @@ void expRel(){
 		contER();
 		return; //Prod 62
 	}else{
-		printf("Error en la expresion regular");
+		fprintf(tablaErrores,"Error en la expresion regular");
 		return;
 	}
 }
@@ -860,7 +860,7 @@ void opRel(){
 		c=getc(entrada);
 		return;	//Prod 70
 	}else{
-		printf("Error en el operador relacional.\n");
+		fprintf(tablaErrores,"Error en el operador relacional.\n");
 		return;
 	}
 }
@@ -890,7 +890,7 @@ void S(){
 		Devuelve();
 		return;	//Prod 78
 	}else{
-		printf("Error en las sentencias\n");
+		fprintf(tablaErrores,"Error en las sentencias\n");
 		return;
 	}
 }

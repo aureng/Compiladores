@@ -360,23 +360,23 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[134] =
+static const flex_int16_t yy_accept[132] =
     {   0,
-        0,    0,   13,   11,   12,   10,   12,    9,    9,   11,
+        0,    0,   13,   11,   12,   10,   12,    9,    9,    8,
         8,   11,    5,    5,    5,    5,    5,    5,    5,    5,
         5,    5,    5,    5,    5,    5,    5,    9,    0,    6,
-        7,    7,    8,    0,    5,    5,    8,    0,    0,    0,
+        7,    7,    8,    5,    5,    0,    0,    0,    5,    5,
         5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
-        5,    5,    5,    5,    5,    1,    5,    5,    0,    7,
-        8,    5,    0,    4,    3,    5,    5,    2,    5,    5,
-        5,    5,    5,    5,    5,    5,    5,    0,    5,    5,
-        5,    5,    5,    5,    1,    5,    0,    5,    5,    5,
-        5,    5,    0,    5,    5,    5,    0,    5,    5,    5,
+        5,    5,    5,    1,    5,    5,    0,    7,    8,    5,
+        0,    4,    3,    5,    5,    2,    5,    5,    5,    5,
+        5,    5,    5,    5,    5,    0,    5,    5,    5,    5,
+        5,    5,    1,    5,    0,    5,    5,    5,    5,    5,
+        0,    5,    5,    5,    0,    5,    5,    5,    0,    0,
 
         0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
         0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
         0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-        0,    0,    0
+        0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -420,148 +420,146 @@ static const YY_CHAR yy_meta[42] =
         1
     } ;
 
-static const flex_int16_t yy_base[175] =
+static const flex_int16_t yy_base[173] =
     {   0,
-        0,    0,  364,  365,  365,  365,  359,  365,   34,   38,
-       42,   48,  342,    0,  341,    0,  339,   34,  327,  328,
-      336,   35,  318,   41,  330,   29,  333,  365,  349,  365,
-       61,   67,   73,   77,   81,   85,   94,  340,  338,   84,
-        0,  321,  325,  309,  308,  309,  312,  321,  318,  318,
-      311,  310,  304,  298,  301,  304,  304,  311,  329,  104,
-        0,    0,  319,  365,    0,  306,  292,    0,  304,  291,
-      302,  294,  288,  291,  302,  289,  292,  316,  287,  293,
-      282,  295,  280,  277,    0,  280,  308,  290,  280,  276,
-      276,  272,  302,  266,  267,  282,  298,  276,  275,  263,
+        0,    0,  356,  357,  357,  357,  351,  357,   34,   38,
+       42,   48,  334,    0,  333,    0,  331,   34,  319,  320,
+      328,   35,  310,   41,  322,   29,  325,  357,  341,  357,
+       61,   67,   73,   77,   81,  332,  330,   80,    0,  313,
+      317,  301,  300,  301,  304,  313,  310,  310,  303,  302,
+      296,  290,  293,  296,  296,  303,  321,   89,    0,    0,
+      311,  357,    0,  298,  284,    0,  296,  283,  294,  286,
+      280,  283,  294,  281,  284,  308,  279,  285,  274,  287,
+      272,  269,    0,  272,  300,  282,  272,  268,  268,  264,
+      294,  258,  259,  274,  290,  268,  267,  255,  286,  285,
 
-      294,  293,  292,  291,  290,  289,  288,  287,  286,  285,
       284,  283,  282,  281,  280,  279,  278,  277,  276,  275,
-      274,  273,  272,  271,  270,  269,  268,  101,   94,   74,
-       68,   62,  365,  114,  117,  119,  123,  127,   53,  131,
-      135,  139,  143,  147,  151,  155,  159,  163,  167,  171,
-      175,  179,  183,  187,  191,  195,  199,  203,  207,  211,
-      215,  219,  223,  227,  231,  235,  239,  243,  247,  251,
-      255,  259,  263,  267
+      274,  273,  272,  271,  270,  269,  268,  267,  266,  265,
+      264,  263,  262,  261,   97,   96,   90,   74,   68,   62,
+      357,  107,  110,  112,  116,  120,   53,  124,  128,  132,
+      136,  140,  144,  148,  152,  156,  160,  164,  168,  172,
+      176,  180,  184,  188,  192,  196,  200,  204,  208,  212,
+      216,  220,  224,  228,  232,  236,  240,  244,  248,  252,
+      256,  260
     } ;
 
-static const flex_int16_t yy_def[175] =
+static const flex_int16_t yy_def[173] =
     {   0,
-      133,    1,  133,  133,  133,  133,  134,  133,  133,  135,
-      135,  133,  136,  136,  136,  136,  136,  136,  136,  136,
-      136,  136,  136,  136,  136,  136,  136,  133,  137,  133,
-      133,  133,  133,  133,  135,  135,  133,  133,  133,  133,
-      136,  136,  136,  136,  136,  136,  136,  136,  136,  136,
-      136,  136,  136,  136,  136,  136,  136,  136,  138,  133,
-      139,   36,  133,  133,  136,  136,  136,  136,  136,  136,
-      136,  136,  136,  136,  136,  136,  136,  140,  136,  136,
-      136,  136,  136,  136,  136,  136,  141,  136,  136,  136,
-      136,  136,  142,  136,  136,  136,  143,  136,  136,  136,
+      131,    1,  131,  131,  131,  131,  132,  131,  131,  133,
+      133,  131,  134,  134,  134,  134,  134,  134,  134,  134,
+      134,  134,  134,  134,  134,  134,  134,  131,  135,  131,
+      131,  131,  131,  133,  133,  131,  131,  131,  134,  134,
+      134,  134,  134,  134,  134,  134,  134,  134,  134,  134,
+      134,  134,  134,  134,  134,  134,  136,  131,  137,   35,
+      131,  131,  134,  134,  134,  134,  134,  134,  134,  134,
+      134,  134,  134,  134,  134,  138,  134,  134,  134,  134,
+      134,  134,  134,  134,  139,  134,  134,  134,  134,  134,
+      140,  134,  134,  134,  141,  134,  134,  134,  142,  143,
 
       144,  145,  146,  147,  148,  149,  150,  151,  152,  153,
       154,  155,  156,  157,  158,  159,  160,  161,  162,  163,
-      164,  165,  166,  167,  168,  169,  170,  171,  172,  173,
-      174,  133,    0,  133,  133,  133,  133,  133,  133,  133,
-      133,  133,  133,  133,  133,  133,  133,  133,  133,  133,
-      133,  133,  133,  133,  133,  133,  133,  133,  133,  133,
-      133,  133,  133,  133,  133,  133,  133,  133,  133,  133,
-      133,  133,  133,  133
+      164,  165,  166,  167,  168,  169,  170,  171,  172,  131,
+        0,  131,  131,  131,  131,  131,  131,  131,  131,  131,
+      131,  131,  131,  131,  131,  131,  131,  131,  131,  131,
+      131,  131,  131,  131,  131,  131,  131,  131,  131,  131,
+      131,  131,  131,  131,  131,  131,  131,  131,  131,  131,
+      131,  131
     } ;
 
-static const flex_int16_t yy_nxt[407] =
+static const flex_int16_t yy_nxt[399] =
     {   0,
         4,    5,    6,    7,    4,    8,    9,   10,   11,   11,
        12,    4,    4,   13,   14,   14,   13,   13,   14,    5,
        15,   16,   17,   18,   19,   20,   16,   21,   15,   16,
        22,   23,   16,   24,   25,   26,   16,   16,   27,   14,
-       28,   31,   31,   31,   32,   33,   33,   34,   32,   37,
-       37,   37,   38,   42,   42,   61,   36,   56,   44,   39,
-       42,   53,   45,   49,   40,   30,   57,   50,   31,   31,
-       31,   30,   51,   54,   60,   60,   60,   30,   40,   32,
-       34,   34,   34,   32,   34,   34,   34,  133,  133,  133,
-      133,  133,   61,   61,   61,   63,   64,   30,   62,   62,
+       28,   31,   31,   31,   32,   33,   33,   33,   32,   33,
+       33,   33,   36,   40,   40,   59,   35,   54,   42,   37,
+       40,   51,   43,   47,   38,   30,   55,   48,   31,   31,
+       31,   30,   49,   52,   58,   58,   58,   30,   38,   32,
+       33,   33,   33,  131,  131,  131,  131,  131,   59,   59,
+       59,   61,   62,   30,   60,   60,   58,   58,   58,   30,
 
-       32,   37,   37,   37,   30,   62,   62,   62,   62,   62,
-       62,   60,   60,   60,   29,   29,   29,   29,   35,   35,
-       35,   41,   41,   59,   59,   59,   59,   78,   78,   78,
-       78,   87,   87,   87,   87,   93,   93,   93,   93,   97,
-       97,   97,   97,  101,  101,  101,  101,  102,  102,  102,
-      102,  103,  103,  103,  103,  104,  104,  104,  104,  105,
-      105,  105,  105,  106,  106,  106,  106,  107,  107,  107,
-      107,  108,  108,  108,  108,  109,  109,  109,  109,  110,
-      110,  110,  110,  111,  111,  111,  111,  112,  112,  112,
-      112,  113,  113,  113,  113,  114,  114,  114,  114,  115,
+       30,   60,   60,   60,   60,   60,   60,   29,   29,   29,
+       29,   34,   34,   34,   39,   39,   57,   57,   57,   57,
+       76,   76,   76,   76,   85,   85,   85,   85,   91,   91,
+       91,   91,   95,   95,   95,   95,   99,   99,   99,   99,
+      100,  100,  100,  100,  101,  101,  101,  101,  102,  102,
+      102,  102,  103,  103,  103,  103,  104,  104,  104,  104,
+      105,  105,  105,  105,  106,  106,  106,  106,  107,  107,
+      107,  107,  108,  108,  108,  108,  109,  109,  109,  109,
+      110,  110,  110,  110,  111,  111,  111,  111,  112,  112,
+      112,  112,  113,  113,  113,  113,  114,  114,  114,  114,
 
-      115,  115,  115,  116,  116,  116,  116,  117,  117,  117,
-      117,  118,  118,  118,  118,  119,  119,  119,  119,  120,
-      120,  120,  120,  121,  121,  121,  121,  122,  122,  122,
-      122,  123,  123,  123,  123,  124,  124,  124,  124,  125,
-      125,  125,  125,  126,  126,  126,  126,  127,  127,  127,
-      127,  128,  128,  128,  128,  129,  129,  129,  129,  130,
-      130,  130,  130,  131,  131,  131,  131,  132,  132,  132,
-      132,   30,   30,   30,   30,   30,   30,   30,   30,   30,
+      115,  115,  115,  115,  116,  116,  116,  116,  117,  117,
+      117,  117,  118,  118,  118,  118,  119,  119,  119,  119,
+      120,  120,  120,  120,  121,  121,  121,  121,  122,  122,
+      122,  122,  123,  123,  123,  123,  124,  124,  124,  124,
+      125,  125,  125,  125,  126,  126,  126,  126,  127,  127,
+      127,  127,  128,  128,  128,  128,  129,  129,  129,  129,
+      130,  130,  130,  130,   30,   30,   30,   30,   30,   30,
        30,   30,   30,   30,   30,   30,   30,   30,   30,   30,
-       30,   30,   30,   30,   30,   30,   30,   30,   85,   85,
+       30,   30,   30,   30,   30,   30,   30,   30,   30,   30,
+       83,   83,   83,   30,   98,   97,   96,   30,   94,   93,
 
-       85,   30,  100,   99,   98,   30,   96,   95,   85,   94,
-       85,   30,   85,   92,   85,   91,   90,   89,   88,   30,
-       86,   85,   85,   85,   68,   84,   83,   82,   81,   80,
-       79,   64,   30,   77,   68,   76,   68,   68,   75,   74,
-       73,   68,   72,   71,   70,   69,   68,   67,   66,   65,
-       64,   63,   30,   58,   55,   52,   48,   47,   46,   43,
-       42,   42,   30,  133,    3,  133,  133,  133,  133,  133,
-      133,  133,  133,  133,  133,  133,  133,  133,  133,  133,
-      133,  133,  133,  133,  133,  133,  133,  133,  133,  133,
-      133,  133,  133,  133,  133,  133,  133,  133,  133,  133,
+       83,   92,   83,   30,   83,   90,   83,   89,   88,   87,
+       86,   30,   84,   83,   83,   83,   66,   82,   81,   80,
+       79,   78,   77,   62,   30,   75,   66,   74,   66,   66,
+       73,   72,   71,   66,   70,   69,   68,   67,   66,   65,
+       64,   63,   62,   61,   30,   56,   53,   50,   46,   45,
+       44,   41,   40,   40,   30,  131,    3,  131,  131,  131,
+      131,  131,  131,  131,  131,  131,  131,  131,  131,  131,
+      131,  131,  131,  131,  131,  131,  131,  131,  131,  131,
+      131,  131,  131,  131,  131,  131,  131,  131,  131,  131,
+      131,  131,  131,  131,  131,  131,  131,  131
 
-      133,  133,  133,  133,  133,  133
     } ;
 
-static const flex_int16_t yy_chk[407] =
+static const flex_int16_t yy_chk[399] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    9,    9,    9,   10,   10,   10,   10,   11,   11,
-       11,   11,   12,   18,   22,  139,   10,   26,   18,   12,
-       24,   24,   18,   22,   12,  132,   26,   22,   31,   31,
-       31,  131,   22,   24,   32,   32,   32,  130,   12,   33,
+       11,   11,   12,   18,   22,  137,   10,   26,   18,   12,
+       24,   24,   18,   22,   12,  130,   26,   22,   31,   31,
+       31,  129,   22,   24,   32,   32,   32,  128,   12,   33,
        33,   33,   33,   34,   34,   34,   34,   35,   35,   35,
-       35,   36,   36,   36,   36,   40,   40,  129,   36,   36,
+       35,   38,   38,  127,   35,   35,   58,   58,   58,  126,
 
-       37,   37,   37,   37,  128,   36,   36,   36,   36,   36,
-       36,   60,   60,   60,  134,  134,  134,  134,  135,  135,
-      135,  136,  136,  137,  137,  137,  137,  138,  138,  138,
-      138,  140,  140,  140,  140,  141,  141,  141,  141,  142,
-      142,  142,  142,  143,  143,  143,  143,  144,  144,  144,
-      144,  145,  145,  145,  145,  146,  146,  146,  146,  147,
-      147,  147,  147,  148,  148,  148,  148,  149,  149,  149,
-      149,  150,  150,  150,  150,  151,  151,  151,  151,  152,
-      152,  152,  152,  153,  153,  153,  153,  154,  154,  154,
-      154,  155,  155,  155,  155,  156,  156,  156,  156,  157,
+      125,   35,   35,   35,   35,   35,   35,  132,  132,  132,
+      132,  133,  133,  133,  134,  134,  135,  135,  135,  135,
+      136,  136,  136,  136,  138,  138,  138,  138,  139,  139,
+      139,  139,  140,  140,  140,  140,  141,  141,  141,  141,
+      142,  142,  142,  142,  143,  143,  143,  143,  144,  144,
+      144,  144,  145,  145,  145,  145,  146,  146,  146,  146,
+      147,  147,  147,  147,  148,  148,  148,  148,  149,  149,
+      149,  149,  150,  150,  150,  150,  151,  151,  151,  151,
+      152,  152,  152,  152,  153,  153,  153,  153,  154,  154,
+      154,  154,  155,  155,  155,  155,  156,  156,  156,  156,
 
-      157,  157,  157,  158,  158,  158,  158,  159,  159,  159,
-      159,  160,  160,  160,  160,  161,  161,  161,  161,  162,
-      162,  162,  162,  163,  163,  163,  163,  164,  164,  164,
-      164,  165,  165,  165,  165,  166,  166,  166,  166,  167,
-      167,  167,  167,  168,  168,  168,  168,  169,  169,  169,
-      169,  170,  170,  170,  170,  171,  171,  171,  171,  172,
-      172,  172,  172,  173,  173,  173,  173,  174,  174,  174,
-      174,  127,  126,  125,  124,  123,  122,  121,  120,  119,
+      157,  157,  157,  157,  158,  158,  158,  158,  159,  159,
+      159,  159,  160,  160,  160,  160,  161,  161,  161,  161,
+      162,  162,  162,  162,  163,  163,  163,  163,  164,  164,
+      164,  164,  165,  165,  165,  165,  166,  166,  166,  166,
+      167,  167,  167,  167,  168,  168,  168,  168,  169,  169,
+      169,  169,  170,  170,  170,  170,  171,  171,  171,  171,
+      172,  172,  172,  172,  124,  123,  122,  121,  120,  119,
       118,  117,  116,  115,  114,  113,  112,  111,  110,  109,
       108,  107,  106,  105,  104,  103,  102,  101,  100,   99,
-
        98,   97,   96,   95,   94,   93,   92,   91,   90,   89,
-       88,   87,   86,   84,   83,   82,   81,   80,   79,   78,
-       77,   76,   75,   74,   73,   72,   71,   70,   69,   67,
-       66,   63,   59,   58,   57,   56,   55,   54,   53,   52,
-       51,   50,   49,   48,   47,   46,   45,   44,   43,   42,
-       39,   38,   29,   27,   25,   23,   21,   20,   19,   17,
-       15,   13,    7,    3,  133,  133,  133,  133,  133,  133,
-      133,  133,  133,  133,  133,  133,  133,  133,  133,  133,
-      133,  133,  133,  133,  133,  133,  133,  133,  133,  133,
-      133,  133,  133,  133,  133,  133,  133,  133,  133,  133,
 
-      133,  133,  133,  133,  133,  133
+       88,   87,   86,   85,   84,   82,   81,   80,   79,   78,
+       77,   76,   75,   74,   73,   72,   71,   70,   69,   68,
+       67,   65,   64,   61,   57,   56,   55,   54,   53,   52,
+       51,   50,   49,   48,   47,   46,   45,   44,   43,   42,
+       41,   40,   37,   36,   29,   27,   25,   23,   21,   20,
+       19,   17,   15,   13,    7,    3,  131,  131,  131,  131,
+      131,  131,  131,  131,  131,  131,  131,  131,  131,  131,
+      131,  131,  131,  131,  131,  131,  131,  131,  131,  131,
+      131,  131,  131,  131,  131,  131,  131,  131,  131,  131,
+      131,  131,  131,  131,  131,  131,  131,  131
+
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -698,8 +696,8 @@ void crearNodo(char iden[]){
 	&temp -> var[] = iden[]
 }*/
 
-#line 702 "lex.yy.c"
-#line 703 "lex.yy.c"
+#line 700 "lex.yy.c"
+#line 701 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -918,7 +916,7 @@ YY_DECL
 	{
 #line 132 "analizadorsintactico.l"
 
-#line 922 "lex.yy.c"
+#line 920 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -945,13 +943,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 134 )
+				if ( yy_current_state >= 132 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 365 );
+		while ( yy_base[yy_current_state] != 357 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -1131,7 +1129,7 @@ YY_RULE_SETUP
 #line 237 "analizadorsintactico.l"
 ECHO;
 	YY_BREAK
-#line 1135 "lex.yy.c"
+#line 1133 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1428,7 +1426,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 134 )
+			if ( yy_current_state >= 132 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1456,11 +1454,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 134 )
+		if ( yy_current_state >= 132 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 133);
+	yy_is_jam = (yy_current_state == 131);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -2209,14 +2207,14 @@ void Program(){
 			if(c=='}'){
 				c=getc(entrada);
 			}else{
-				printf("Se esperaba un }\n");
+				fprintf(tablaErrores,"Se esperaba un }\n");
 			}
 		}else{
-			printf("Se esperaba un {\n");
+			fprintf(tablaErrores,"Se esperaba un {\n");
 			return;				//Produccion 1
 		}		
 	}else{
-		printf("Hubo un error en la estructura del programa\n");
+		fprintf(tablaErrores,"Hubo un error en la estructura del programa\n");
 	}
 }
 void Decl(){
@@ -2227,7 +2225,7 @@ void Decl(){
 		Decl();
 		return;	//Produccion 3
 	}else{
-		printf("Hubo un error en las declaraciones\n}");
+		fprintf(tablaErrores,"Hubo un error en las declaraciones\n}");
 		return;
 	}		
 }
@@ -2255,10 +2253,10 @@ void D(){
 			L();
 			return;	//Produccion 7
 		}else{
-			printf("se esperaba un identificador\n");
+			fprintf(tablaErrores,"se esperaba un identificador\n");
 		}
 	}else{
-		printf("Hubo un error en la sentencia declarativa\n");
+		fprintf(tablaErrores,"Hubo un error en la sentencia declarativa\n");
 		return;
 	}
 }
@@ -2273,7 +2271,7 @@ void Tipo(){
 		c=getc(entrada);
 		return;		//Prod 10
 	}else{
-		printf("hubo un error en la declaracion de tipo\n");
+		fprintf(tablaErrores,"hubo un error en la declaracion de tipo\n");
 		return;
 	}
 }
@@ -2288,7 +2286,7 @@ void L(){
 		c=getc(entrada);
 		return;		//Prod 12
 	}else{
-		printf("Se esperaba un .\n");
+		fprintf(tablaErrores,"Se esperaba un .\n");
 		return;
 	}
 }
@@ -2308,13 +2306,13 @@ void Func(){
 						if(c=='}'){
 							c=getc(entrada);
 							return;				//Prod 13
-						}else{printf("Se esperaba un }\n");}
-					}else{printf("Se esperaba un {\n");}
-				}else{printf("Se esperaba un )\n");}
-			}else{printf("Se esperaba un (\n");}
-		}else{printf("Se esperaba un identificador\n");}
+						}else{fprintf(tablaErrores,"Se esperaba un }\n");}
+					}else{fprintf(tablaErrores,"Se esperaba un {\n");}
+				}else{fprintf(tablaErrores,"Se esperaba un )\n");}
+			}else{fprintf(tablaErrores,"Se esperaba un (\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un identificador\n");}
 	}else{
-		printf("Hubo un error con las funciones\n");
+		fprintf(tablaErrores,"Hubo un error con las funciones\n");
 		return;
 	}
 }
@@ -2326,7 +2324,7 @@ void TipoF(){
 		c=getc(entrada);
 		return; //Prod 15
 	}else{
-		printf("Hubo un error en la sentencia declarativa\n");
+		fprintf(tablaErrores,"Hubo un error en la sentencia declarativa\n");
 		return;
 	}
 }
@@ -2341,7 +2339,7 @@ void Param(){
 	}else if(c==')'){
 		return; //Prod 17
 	}else{
-		printf("Hubo un error en la definicion de parametros\n");
+		fprintf(tablaErrores,"Hubo un error en la definicion de parametros\n");
 		return;
 	}
 }
@@ -2357,7 +2355,7 @@ void otroParam(){
 	}else if(c==')'){
 		return;		//Prod 19
 	}else{
-		printf("Hubo un error en la definicion de parametros\n");
+		fprintf(tablaErrores,"Hubo un error en la definicion de parametros\n");
 		return;
 	}
 }
@@ -2369,7 +2367,7 @@ void R(){
 		R();
 		return; //Prod 21
 	}else{
-		printf("Hubo un error en R\n");
+		fprintf(tablaErrores,"Hubo un error en R\n");
 		return;
 	}
 }
@@ -2392,14 +2390,14 @@ void H(){
 							if(c=='.'){
 								c=getc(entrada);
 								return;	//Prod 22	
-							}else{printf("Se esperaba un .\n");}	
-						}else{printf("Se esperaba un )\n");}	
-					}else{printf("Se esperaba un (\n");}	
-				}else{printf("Se esperaba un token m\n");}	
-			}else{printf("Se esperaba un }\n");}
-		}else{printf("Se esperaba un {\n");}	
+							}else{fprintf(tablaErrores,"Se esperaba un .\n");}	
+						}else{fprintf(tablaErrores,"Se esperaba un )\n");}	
+					}else{fprintf(tablaErrores,"Se esperaba un (\n");}	
+				}else{fprintf(tablaErrores,"Se esperaba un token m\n");}	
+			}else{fprintf(tablaErrores,"Se esperaba un }\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un {\n");}	
 	}else{
-		printf("Se esperaba un token h\n");
+		fprintf(tablaErrores,"Se esperaba un token h\n");
 		return;
 	}
 }
@@ -2420,13 +2418,13 @@ void M(){
 						if(c=='.'){
 							c=getc(entrada);
 							return;	//Prod 23
-						}else{printf("Se esperaba un .\n");}	
-					}else{printf("Se esperaba un }\n");}	
-				}else{printf("Se esperaba un {\n");}	
-			}else{printf("Se esperaba un )\n");}
-		}else{printf("Se esperaba un (\n");}	
+						}else{fprintf(tablaErrores,"Se esperaba un .\n");}	
+					}else{fprintf(tablaErrores,"Se esperaba un }\n");}	
+				}else{fprintf(tablaErrores,"Se esperaba un {\n");}	
+			}else{fprintf(tablaErrores,"Se esperaba un )\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un (\n");}	
 	}else{
-		printf("Se esperaba un token m\n");
+		fprintf(tablaErrores,"Se esperaba un token m\n");
 		return;
 	}
 }
@@ -2443,12 +2441,12 @@ void P(){
 					if(c=='.'){
 						c=getc(entrada);
 						return; //prod 24	
-					}else{printf("Se esperaba un .\n");}	
-				}else{printf("Se esperaba un }\n");}	
-			}else{printf("Se esperaba un {\n");}
-		}else{printf("Se esperaba un token n\n");}	
+					}else{fprintf(tablaErrores,"Se esperaba un .\n");}	
+				}else{fprintf(tablaErrores,"Se esperaba un }\n");}	
+			}else{fprintf(tablaErrores,"Se esperaba un {\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un token n\n");}	
 	}else{
-		printf("Se esperaba un token p\n");
+		fprintf(tablaErrores,"Se esperaba un token p\n");
 		return;
 	}
 }
@@ -2475,16 +2473,16 @@ void I(){
 									if(c=='.'){
 										c=getc(entrada);
 										return; //Prod 25
-									}else{printf("Se esperaba un .\n");}
-								}else{printf("Se esperaba un }\n");}
-							}else{printf("Se esperaba un {\n");}	
-						}else{printf("Se esperaba un token w\n");}	
-					}else{printf("Se esperaba un }\n");}	
-				}else{printf("Se esperaba un {\n");}	
-			}else{printf("Se esperaba un )\n");}
-		}else{printf("Se esperaba un (\n");}	
+									}else{fprintf(tablaErrores,"Se esperaba un .\n");}
+								}else{fprintf(tablaErrores,"Se esperaba un }\n");}
+							}else{fprintf(tablaErrores,"Se esperaba un {\n");}	
+						}else{fprintf(tablaErrores,"Se esperaba un token w\n");}	
+					}else{fprintf(tablaErrores,"Se esperaba un }\n");}	
+				}else{fprintf(tablaErrores,"Se esperaba un {\n");}	
+			}else{fprintf(tablaErrores,"Se esperaba un )\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un (\n");}	
 	}else{
-		printf("Se esperaba un token i\n");
+		fprintf(tablaErrores,"Se esperaba un token i\n");
 		return;
 	}
 }
@@ -2503,13 +2501,13 @@ void Llama(){
 						if(c=='.'){
 							c=getc(entrada);
 							return; //Prod 26	
-						}else{printf("Se esperaba un .\n");}	
-					}else{printf("Se esperaba un }\n");}	
-				}else{printf("Se esperaba un )\n");}	
-			}else{printf("Se esperaba un (\n");}
-		}else{printf("Se esperaba un a\n");}	
+						}else{fprintf(tablaErrores,"Se esperaba un .\n");}	
+					}else{fprintf(tablaErrores,"Se esperaba un }\n");}	
+				}else{fprintf(tablaErrores,"Se esperaba un )\n");}	
+			}else{fprintf(tablaErrores,"Se esperaba un (\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un a\n");}	
 	}else{
-		printf("Se esperaba un {\n");
+		fprintf(tablaErrores,"Se esperaba un {\n");
 		return;
 	}
 }
@@ -2521,7 +2519,7 @@ void arg(){
 		otroArg();
 		return;	//Prod 28
 	}else{
-		printf("Se esperaba un identificador\n");
+		fprintf(tablaErrores,"Se esperaba un identificador\n");
 		return;
 	}
 }
@@ -2532,11 +2530,11 @@ void otroArg(){
 			c=getc(entrada);
 			otroArg();
 			return;	//Prod 29
-		}else{printf("Se esperaba un identificador\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un identificador\n");}
 	}else if(c==')'){
 		return;	//Prod 30
 	}else{
-		printf("Se esperaba un :\n");
+		fprintf(tablaErrores,"Se esperaba un :\n");
 		return;
 	}
 }
@@ -2551,11 +2549,11 @@ void Devuelve(){
 				if(c=='.'){
 					c=getc(entrada);
 					return; //Prod 31
-				}else{printf("Se esperaba un .\n");}	
-			}else{printf("Se esperaba un )\n");}
-		}else{printf("Se esperaba un (\n");}	
+				}else{fprintf(tablaErrores,"Se esperaba un .\n");}	
+			}else{fprintf(tablaErrores,"Se esperaba un )\n");}
+		}else{fprintf(tablaErrores,"Se esperaba un (\n");}	
 	}else{
-		printf("Se esperaba un token d\n");
+		fprintf(tablaErrores,"Se esperaba un token d\n");
 		return;
 	}
 }
@@ -2573,7 +2571,7 @@ void Valor(){
 		otroValor();
 		return;	//Prod 35
 	}else{
-		printf("Hubo un error en el valor\n");
+		fprintf(tablaErrores,"Hubo un error en el valor\n");
 		return;
 	}
 }
@@ -2585,7 +2583,7 @@ void otroValor(){
 		c=getc(entrada);
 		return;	//Prod 37
 	}else{
-		printf("Hubo un error en el valor\n");
+		fprintf(tablaErrores,"Hubo un error en el valor\n");
 		return;
 	}
 }
@@ -2597,9 +2595,9 @@ void A(){
 		if(c==':'){
 			c=getc(entrada);
 			return; //Prod 38
-		}else{printf("Se esperaba un :\n");}	
+		}else{fprintf(tablaErrores,"Se esperaba un :\n");}	
 	}else{
-		printf("Se esperaba un identificador.\n");
+		fprintf(tablaErrores,"Se esperaba un identificador.\n");
 		return;
 	}
 }
@@ -2629,7 +2627,7 @@ void opasig(){
 		c=getc(entrada);
 		return;	//Prod 46
 	}else{
-		printf("Hubo un error en la asignacion.\n");
+		fprintf(tablaErrores,"Hubo un error en la asignacion.\n");
 		return;
 	}
 }
@@ -2639,7 +2637,7 @@ void E(){
 		EP();
 		return;	//Prod 47
 	}else{
-		printf("Error en la expresion aritmetica.\n");
+		fprintf(tablaErrores,"Error en la expresion aritmetica.\n");
 		return;
 	}
 }
@@ -2657,7 +2655,7 @@ void EP(){
 	}else if(c==':'||c==')'||c=='>'||c=='<'||c=='='||c=='g'||c=='l'||c=='!'){
 		return;	//Prod 50
 	}else{
-		printf("Error en la expresion aritmetica.\n");
+		fprintf(tablaErrores,"Error en la expresion aritmetica.\n");
 		return;
 	}
 }
@@ -2667,7 +2665,7 @@ void T(){
 		TP();
 		return;	//Prod 51
 	}else{
-		printf("Error en la expresion aritmetica.\n");
+		fprintf(tablaErrores,"Error en la expresion aritmetica.\n");
 		return;
 	}
 }
@@ -2695,7 +2693,7 @@ void TP(){
 	}else if(c=='+'||c=='-'||c==':'||c==')'||c=='>'||c=='<'||c=='='||c=='g'||c=='l'||c=='!'){
 		return;	//Prod 56
 	}else{
-		printf("Error en la expresion aritmetica.\n");
+		fprintf(tablaErrores,"Error en la expresion aritmetica.\n");
 		return;
 	}
 }
@@ -2706,7 +2704,7 @@ void F(){
 		if(c==')'){
 			c=getc(entrada);
 			return;	//Prod 57
-		}else{printf("Se esperaba un )\n");}	
+		}else{fprintf(tablaErrores,"Se esperaba un )\n");}	
 	}else if(c=='a'){
 		c=getc(entrada);
 		return;	//Prod 58
@@ -2720,7 +2718,7 @@ void F(){
 		Llama();
 		return;	//Prod 61
 	}else{
-		printf("Error en la expresion aritmetica.\n");
+		fprintf(tablaErrores,"Error en la expresion aritmetica.\n");
 		return;
 	}
 }
@@ -2730,7 +2728,7 @@ void expRel(){
 		contER();
 		return; //Prod 62
 	}else{
-		printf("Error en la expresion regular");
+		fprintf(tablaErrores,"Error en la expresion regular");
 		return;
 	}
 }
@@ -2763,7 +2761,7 @@ void opRel(){
 		c=getc(entrada);
 		return;	//Prod 70
 	}else{
-		printf("Error en el operador relacional.\n");
+		fprintf(tablaErrores,"Error en el operador relacional.\n");
 		return;
 	}
 }
@@ -2793,7 +2791,7 @@ void S(){
 		Devuelve();
 		return;	//Prod 78
 	}else{
-		printf("Error en las sentencias\n");
+		fprintf(tablaErrores,"Error en las sentencias\n");
 		return;
 	}
 }
