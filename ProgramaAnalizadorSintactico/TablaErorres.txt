@@ -1,1 +1,3 @@
-Se encontro como error 0, en la linea 14
+Se esperaba un :
+Hubo un error en las declaraciones
+}Se esperaba un {

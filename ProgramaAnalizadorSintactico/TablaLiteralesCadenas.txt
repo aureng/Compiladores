@@ -1,4 +1,0 @@
-posicion: 0    cadena: "Pedro"                                 
-posicion: 1    cadena: "Aurelio"                               
-posicion: 2    cadena: "Emilio"                                
-posicion: 3    cadena: "Laura"                                 

@@ -1,18 +1,9 @@
-cadena nombre i_i "Pedro":
-cadena integrante1 i_i "Aurelio":
-cadena integrante2 i_i "Emilio":
-cadena profesora i_i "Laura":
-flotante altura:
-entero par_1 i_i 2:
-flotante pi i_i 3.1416:
-flotante euler i_i 2.718:
-flotante aleatoria i_i 2341.51236:
+entero var1:var2.
+cadena nombre1:nombre2.{
+	flotante 1a_fun(entero x_1){
+		mientras(a_1<m>10){
+			{fun1(3x)}.	
+		}.
+	}
+}
 
-mientras(j<$=>10){
-	j M_i 1:
-}
-para(par_1 i_i 0: par_1 <m> 10: par_1 M_i 1){
-	imprime(par_1):
-	altura i_i (par_1 sum 3) mod 2:
-	var_1 i_i 5:
-}

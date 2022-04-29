@@ -2180,7 +2180,10 @@ int main(int argc, char *argv[]){
 	//Se cierra el archivo y se vuelve a abrir inmediatamente como solo lectura para evitar conflictos con escritura.
 	fclose(entrada);
 	entrada = fopen("TokensSintacticos.txt","r");
-	char c = getc(entrada);
+	if(entrada==NULL){
+		printf("Hubo error al abrir el archivo de entrada\n");
+	}
+	c = getc(entrada);
 	Program();			//Empieza el Analizador Sintactico a partir de aqui y solo se usa getc(entrada) para leer cada caracter.
 	if(c=='\0'){
 		printf("El programa esta correcto sintacticamente. Felicidades!\n");
@@ -2286,7 +2289,7 @@ void L(){
 		c=getc(entrada);
 		return;		//Prod 12
 	}else{
-		fprintf(tablaErrores,"Se esperaba un .\n");
+		fprintf(tablaErrores,"Se esperaba un :\n");
 		return;
 	}
 }
